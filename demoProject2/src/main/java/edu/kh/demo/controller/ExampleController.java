@@ -87,6 +87,7 @@ public class ExampleController {
 		
 		model.addAttribute("str", "<h1>테스트 중 &times; </h1>");
 		
+		
 		return "example/ex2";
 	}
 }
