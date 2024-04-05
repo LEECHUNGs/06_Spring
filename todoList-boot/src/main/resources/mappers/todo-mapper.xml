@@ -73,4 +73,33 @@
 		VALUES(SEQ_TODO_NO.NEXTVAL, #{todoTitle}, #{todoContent}, DEFAULT, DEFAULT )
 	</insert>
 	
+	<!-- 할 일 상세 조회 -->
+	<select id="todoDetail" parameterType="_int" resultType="Todo">
+		SELECT TODO_NO, TODO_TITLE, TODO_CONTENT, COMPLETE,
+			   TO_CHAR(REG_DATE, 'YYYY-MM-DD HH24:MI:SS') REG_DATE
+		FROM TB_TODO
+		WHERE TODO_NO = #{todoNo}
+	</select>
+	
+	<update id="changeComplete" parameterType="Todo">
+		UPDATE TB_TODO SET
+		COMPLETE = #{complete}
+		WHERE TODO_NO = #{todoNo} 
+	</update>
+	
+	<!-- 할 일 수정 -->
+	<!-- 파라미터가 DTO인 경우 : #{필드명}, ${필드명} -->
+	<!-- 파라미터가 Map인 경우 : #{key{, ${key} -->
+	<update id="todoUpdate" parameterType="Todo">
+		UPDATE TB_TODO SET
+		TODO_TITLE = #{todoTitle}, 
+		TODO_CONTENT = #{todoContent}
+		WHERE TODO_NO = #{todoNo}
+	</update>
+	
+	<!-- 할 일 삭제 -->
+	<delete id="todoDelete" parameterType="_int">
+		DELETE FROM TB_TODO
+		WHERE TODO_NO = #{todoNo}
+	</delete>
 </mapper>
