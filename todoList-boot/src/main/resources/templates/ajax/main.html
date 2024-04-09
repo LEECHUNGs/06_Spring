@@ -62,35 +62,47 @@
 
      -->
 
-     <div id="popupLayer" class="popup-hidden">
-        <div class="popup-row">
-          번호 : <span id="popupTodoNo"></span>
-          |
-          제목 : <span id="popupTodoTitle"></span>
-          <span id="popupClose">&times;</span>
-        </div>
-        
-        <div class="popup-row">
-          완료 여부 : <span id="popupComplete"></span>
-          |
-          등록일 : <span id="popupRegDate"></span>
-        </div>
-
-        <div class="popup-row">
-          [내용]
-          <div id="popupTodoContent"></div>
-        </div>
-
-        <div class="btn-container">
-          <button id="changeComplete">완료 여부 변경</button>
-
-          <button id="updateView">수정</button>
-
-          <button id="deleteBtn">삭제</button>
-
-        </div>
+    <div id="popupLayer" class="popup-hidden">
+      <div class="popup-row">
+        번호 : <span id="popupTodoNo"></span>
+        |
+        제목 : <span id="popupTodoTitle"></span>
+        <span id="popupClose">&times;</span>
       </div>
 
+      <div class="popup-row">
+        완료 여부 : <span id="popupComplete"></span>
+        |
+        등록일 : <span id="popupRegDate"></span>
+      </div>
+
+      <div class="popup-row">
+        [내용]
+        <div id="popupTodoContent"></div>
+      </div>
+
+      <div class="btn-container">
+        <button id="changeComplete">완료 여부 변경</button>
+
+        <button id="updateView">수정</button>
+
+        <button id="deleteBtn">삭제</button>
+
+      </div>
+    </div>
+
+    <div id="updateLayer" class="popup-hidden">
+      <div class="popup-row">
+        제목 : <input type="text" id="updateTitle">
+      </div>
+      <div class="popup-row">
+        <textarea id="updateContent" cols="50" rows="5"></textarea>
+      </div>
+      <div class="btn-container">
+        <button id="updateBtn">수정</button>     
+        <button id="updateCancel">취소</button>     
+      </div>
+    </div>
 
     <script src="/js/ajax-main.js"></script>
 </body>
