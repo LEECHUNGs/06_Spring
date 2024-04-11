@@ -20,4 +20,11 @@
 		AND MEMBER_DEL_FL = 'N'
 	 </select>
 	 
+	 <select id="checkEmail" resultType="_int">
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_DEL_FL = 'N'
+		AND MEMBER_EMAIL = #{memberEmal}
+	 </select>
+	 
 </mapper>

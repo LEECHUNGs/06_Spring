@@ -32,7 +32,8 @@ public class MemberServiceImpl implements MemberService{
 		
 		// bcrypt.encode(문자열) : 문자열을 암호화하여 반환
 		String bcryptPassword = bcrypt.encode(inputMember.getMemberPw());
-		log.debug(bcryptPassword);
+		//log.debug(inputMember.getMemberPw());
+		//log.debug(bcryptPassword);
 		
 		//boolean result = bcrypt.matches(inputMember.getMemberPw(), bcryptPassword);
 		//log.debug("result : " + result);
@@ -54,6 +55,13 @@ public class MemberServiceImpl implements MemberService{
 		loginMember.setMemberPw(null);
 		
 		return loginMember;
+	}
+	
+	// 이메일 중복검사 서비스
+	@Override
+	public int checkEmail(String memberEmail) {
+		// TODO Auto-generated method stub
+		return mapper.checkEmail(memberEmail);
 	}
 }
 
