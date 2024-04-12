@@ -51,7 +51,7 @@ if(loginEmail != null){ // 로그인 창에 이메일 입력 부분이 화면에
 const loginForm = document.querySelector("#loginForm");
 
 const loginPw = document.querySelector("#loginForm input[name='memberPw']");
-console.log(loginPw);
+//console.log(loginPw);
 // #loginForm 이 화면에 존재할 때(== 로그인 상태가 아닐 떄)
 if(loginForm != null) {
     // 제출 이벤트 발생 시

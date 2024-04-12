@@ -63,6 +63,48 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return mapper.checkEmail(memberEmail);
 	}
+
+	// 닉네임 중복 검사
+	@Override
+	public int checkNickname(String memberNickname) {
+		
+		return mapper.checkNickname(memberNickname);
+	}
+
+	// 회원 가입 서비스
+	@Override
+	public int signup(Member inputMember, String[] memberAddress) {
+		
+		// 주소를 입력하지 않았으면
+		// inputMember.getMemberAddress() -> ",,"
+		// memberAddress -> [,,]
+		
+		// 주소가 입력된 경우
+		if( !inputMember.getMemberAddress().equals(",,")) {
+			
+			// String.join("구분자", 배열)
+			// -> 배열의 모든 요소 사이에 "구분자"를 추가하여
+			// 하나의 문자열로 만들어 반환하는 메서드
+			
+			// 구분자로 ^^^ 사용 이유
+			// -> 주소, 상세주소에 없는 특수문자 작성
+			// -> 나중에 다시 3분할 때 구분자로 이용할 예정
+			String address = String.join("^^^", memberAddress);
+			
+			// inputMember 주소로 합쳐진 주소를 세팅
+			inputMember.setMemberAddress(address);
+			
+		} else { // 주소 입력 X
+			inputMember.setMemberAddress(null); // null 저장
+		}
+		
+		// 비밀번호를 암호화 해 inputMember에 세팅
+		String encPw = bcrypt.encode(inputMember.getMemberPw());
+		inputMember.setMemberPw(encPw);
+		
+		// 회원 가입 매퍼 메서드 호출
+		return mapper.signup(inputMember);
+	}
 }
 
 
