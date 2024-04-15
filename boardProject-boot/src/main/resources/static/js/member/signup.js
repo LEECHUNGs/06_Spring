@@ -322,7 +322,7 @@ memberPw.addEventListener("input", e => {
     // 4) 입력 받은 비밀번호 정규식 검사
     const regExp = /^[a-zA-Z0-9!@#_-]{6,20}$/;
 
-    if( !regExp.test(inputPw)) {
+    if( !regExp.test(inputPw.value)) {
         pwMessage.innerText = "유효하지 않은 비밀번호 형식 입니다.";
         pwMessage.classList.add("error");
         pwMessage.classList.remove("confirm");
