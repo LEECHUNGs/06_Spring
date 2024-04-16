@@ -1,5 +1,7 @@
 package edu.kh.project.member.model.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -104,6 +106,48 @@ public class MemberServiceImpl implements MemberService{
 		
 		// 회원 가입 매퍼 메서드 호출
 		return mapper.signup(inputMember);
+	}
+
+	@Override
+	public List<Member> selectAll() {
+		
+		return mapper.quickLogin();
+	}
+
+	@Override
+	public Member quickLogin(String inputEmail) {
+		
+		Member logMember = mapper.login(inputEmail);
+		
+		if(logMember == null) return null;
+		
+		logMember.setMemberPw(null);
+		
+		return mapper.login(inputEmail);
+	}
+
+	@Override
+	public List<Member> selectMemberList() {
+		
+		return mapper.selectMemberList();
+	}
+
+	@Override
+	public int resetMember(String memberNo) {
+		
+		String bcryptPw = bcrypt.encode("pass01!");
+		
+		Member member = new Member();
+		member.setMemberNo(Integer.parseInt(memberNo));
+		member.setMemberPw(bcryptPw);
+		
+		return mapper.resetMember(member);
+	}
+
+	@Override
+	public int restorationMember(String memberNo) {
+		
+		return mapper.restorationMember(Integer.parseInt(memberNo));
 	}
 }
 

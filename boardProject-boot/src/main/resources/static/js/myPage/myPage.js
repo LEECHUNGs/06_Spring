@@ -20,7 +20,7 @@ if(updateInfo != null) {
 
         // 닉네임 정규식
         const regExp1 = /^[가-힣\w\d]{2,10}$/;
-        if( !regExp.test(memberNickname.value) ) {
+        if( !regExp1.test(memberNickname.value) ) {
             alert("닉네임이 유효하지 않습니다.");
             e.preventDefault(); // 제출 막기
             return;
@@ -39,7 +39,7 @@ if(updateInfo != null) {
 
         // 전화번호 맞지 않으면
         const regExp2 = /^01[0-9]{1}[0-9]{3,4}[0-9]{4}$/;
-        if( !regExp.test(memberTel.value) ) {
+        if( !regExp2.test(memberTel.value) ) {
             alert("전화번호가 유효하지 않습니다");
             e.preventDefault();
             return;
@@ -89,7 +89,7 @@ if(changePw != null) {
         let str; // undefinde 상태
         if( currentPw.value.trim().length == 0) str = "현재 비밀번호를 입력해주세요";
         else if( newPw.value.trim().length == 0) str = "새 비밀번호를 입력해주세요";
-        else if( newPwConfirm.trim().length == 0) str = "새 비밀번호 확인을 입력해주세요";
+        else if( newPwConfirm.value.trim().length == 0) str = "새 비밀번호 확인을 입력해주세요";
         
         if(str != undefined) { // str에 값이 대입됨 == if 문중 1개 실행
             alert(str);
@@ -100,14 +100,12 @@ if(changePw != null) {
         // 새 비밀번호 정규식
         const regExp = /^[a-zA-Z0-9!@#_-]{6,20}$/;
 
-        alert(newPw.value);
-
         if( !regExp.test(newPw.value)) {
             alert("새 비밀번호가 유효하지 않습니다.");
             e.preventDefault();
             return;
         }
-
+        
         if( newPw.value != newPwConfirm.value ) {
             alert("새 비밀번호가 일치하지 않습니다.");
             e.preventDefault();

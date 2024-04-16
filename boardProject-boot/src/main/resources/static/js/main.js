@@ -75,3 +75,109 @@ if(loginForm != null) {
         }
     });
 }
+
+/* 빠른 로그인 */
+
+function addQuickLogin() {
+
+    fetch("/member/selectAll")
+    .then(resp => resp.json())
+    .then(list => {
+        const memberBtn = document.querySelector("#memberBtn");
+        
+        //console.log(list);
+        for (const key in list) {
+            
+            const quickLoginBtn = document.createElement("button");
+            quickLoginBtn.innerText = list[key].memberEmail;
+            quickLoginBtn.classList.add("quick-login");
+
+            memberBtn.appendChild(quickLoginBtn);
+
+            quickLoginBtn.addEventListener("click", () => {
+
+                const quickLoginId = document.getElementById("quickLoginId");
+                quickLoginId.value = list[key].memberEmail;
+            });
+        }
+    });
+
+
+}
+
+addQuickLogin();
+
+const selectMemberList = document.getElementById("selectMemberList");
+selectMemberList.addEventListener("click", () => {
+
+    fetch("/member/selectMemberList")
+    .then(resp => resp.json())
+    .then(list => {
+
+        const memberList = document.querySelector("#memberList");
+        memberList.innerHTML = "";
+
+        for(const key in list) {
+            const tr = document.createElement("tr");
+            const td = [,,,];
+
+            for(let i = 0; i<4; i++) {
+                td[i] = document.createElement("td");
+            }
+
+            td[0].innerText = list[key].memberNo;
+            td[1].innerText = list[key].memberEmail;
+            td[2].innerText = list[key].memberNickname;
+            td[3].innerText = list[key].memberDelFl;
+
+            for(let i = 0; i<4; i++) {
+                tr.appendChild(td[i]);
+            }
+
+            memberList.appendChild(tr);
+        }
+    });
+});
+
+
+document.getElementById("resetPw").addEventListener("click", () => {
+
+    const resetMemberNo = document.getElementById("resetMemberNo");
+
+    if(resetMemberNo.value.trim().length == 0) {
+        alert("회원 번호를 입력해주세요!!");
+        return;
+    }
+
+    fetch("/member/resetMember?memberNo=" + resetMemberNo.value)
+    .then(resp => resp.text())
+    .then(result => {
+
+        if(result > 0) {
+            alert("비밀번호가 pass01!로 초기화 되었습니다.");
+        } else {
+            alert("없는 회원 번호 입니다!!");
+        }
+    });    
+});
+
+document.getElementById("restorationBtn").addEventListener("click", () => {
+
+    const restorationMemberNo = document.getElementById("restorationMemberNo");
+
+    if(restorationMemberNo.value.trim().length == 0) {
+        alert("회원 번호를 입력해주세요!!");
+        return;
+    }
+
+    fetch("/member/restorationMember?memberNo=" + restorationMemberNo.value)
+    .then(resp => resp.text())
+    .then(result => {
+
+        if(result > 0) {
+            alert("복구 되었습니다.");
+        } else {
+            alert("없는 회원 번호 입니다!!");
+        }
+    });    
+});

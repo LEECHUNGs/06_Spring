@@ -1,5 +1,7 @@
 package edu.kh.project.member.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -173,6 +175,52 @@ public class MemberController {
 		
 		return "redirect:" + path;
 	}
+	
+	@ResponseBody
+	@GetMapping("selectAll")
+	public List<Member> selectAll() {
+		
+		return service.selectAll();
+	}
+	
+	@PostMapping("quickLogin")
+	public String quickLogin(Member inputMember, 
+							 Model model,
+							 RedirectAttributes ra) {
+		
+		Member loginMember = service.quickLogin(inputMember.getMemberEmail());
+		
+		// 로그인 성공 시 
+		if(loginMember == null) {
+			ra.addFlashAttribute("message", "해당 이메일이 존재하지 않습니다.");
+			
+		} else {
+			model.addAttribute("loginMember", loginMember);
+		}
+		
+		return "redirect:/"; // 메인페이지 재요청
+	}
+	
+	@ResponseBody
+	@GetMapping("selectMemberList")
+	public List<Member> selectMemberList() {
+		return service.selectMemberList();
+	}
+	
+	@ResponseBody
+	@GetMapping("resetMember")
+	public int resetMember(@RequestParam("memberNo") String memberNo) {
+		
+		return service.resetMember(memberNo);
+	}
+	
+	@ResponseBody
+	@GetMapping("restorationMember")
+	public int restorationMember(@RequestParam("memberNo") String memberNo) {
+		return service.restorationMember(memberNo);
+	}
+	
+	
 }
 
 

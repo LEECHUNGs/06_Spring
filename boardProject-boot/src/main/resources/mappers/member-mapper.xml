@@ -49,4 +49,29 @@
 		)
 	 </insert>
 	 
+	 <select id="quickLogin" resultType="Member">
+	 	SELECT MEMBER_EMAIL
+	 	FROM "MEMBER"
+	 </select>
+	 
+	 <select id="selectMemberList" resultType="Member">
+	 	SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICKNAME, MEMBER_DEL_FL
+	 	FROM "MEMBER"
+	 </select>
+	 
+	 <update id="resetMemberNo">
+	 	UPDATE "MEMBER" SET
+	 		MEMBER_PW = #{memberPw}
+	 	WHERE MEMBER_NO = #{memberNo}
+	 	AND MEMBER_DEL_FL = 'N'
+	 </update>
+	 
+	 <update id="restorationMember">
+	 	UPDATE "MEMBER" SET
+	 		MEMBER_DEL_FL = 'N'
+	 	WHERE MEMBER_NO = #{memberNo}
+	 	AND MEMBER_DEL_FL = 'Y'
+	 </update>
+
+	 
 </mapper>
