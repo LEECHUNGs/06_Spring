@@ -62,7 +62,7 @@
           <!-- type="file" 도 결국에는 parameter
                -> @RequestParam 으로 처리 가능 
           -->
-          <input type="file" name="uploadFile">
+          <input type="file" name="uploadFile" multiple>
 
           <button class="myPage-submit">제출하기</button>
 
@@ -73,8 +73,56 @@
         -->
         <a th:if="${path != null}" 
            th:text="${path}"
-           th:path="${path}"
+           th:href="${path}"
            download>업로드한 파일</a>
+
+        <img th:src="${path}">
+        
+        <hr>
+
+        <form action="/myPage/file/test2"
+              method="post"
+              enctype="multipart/form-data"
+        >
+          <h3>파일 업로드 + DB 저장 + 조회</h3>
+
+          <input type="file" name="uploadFile">
+
+          <button class="myPage-submit">제출하기</button>
+        </form>
+
+        <hr>
+
+        <form action="/myPage/file/test3"
+              method="post" enctype="multipart/form-data"
+        >
+          <h3>여러 파일 업로드</h3>
+
+          <pre>
+            1) 같은 name 속성을 가지는 type="file"인
+               요소를 여러 개 작성
+
+            2) multiple 속성 이용
+          </pre>
+
+          <div>
+            1번 ) type="file" 인 요소 여러 개 작성
+            <br>
+            <input type="file" name="aaa">
+            <br>
+            <input type="file" name="aaa">
+          </div>
+
+          <hr>
+
+          <div>
+            2번 ) multiple 이용 (드래그 가능)
+            <br>
+            <input type="file" name="bbb" multiple>
+          </div>
+          
+          <button class="myPage-submit">제출하기</button>
+        </form>
 
       </section>
 
