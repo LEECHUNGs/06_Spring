@@ -63,7 +63,9 @@
 								<td>
 									<!-- 썸네일 추가 예정 -->
 
-									<a th:text="*{boardTitle}">게시글 제목</a>
+									<a th:href="@{/board/{boardCode}/{boardNo} (boardCode=${boardCode}, 
+													boardNo=*{boardNo}, cp=${pagination.currentPage})}"
+										th:text="*{boardTitle}">게시글 제목</a>
 
 									<th:block th:text="|[*{commentCount}]|">댓글 수</th:block>
 								</td>

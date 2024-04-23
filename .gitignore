@@ -7,7 +7,6 @@ settings.json
 *.log
 config.properties
 
-
 driver.xml
 
 .classpath

@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="edu.kh.project.myPage.model.dto.UploadFile"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
-    <fullyQualifiedTypeName name="org.eclipse.angus.mail.handlers.message_rfc822"/>
-    <fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.SessionAttribute"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.PropertySource"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
     <fullyQualifiedTypeName name="edu.kh.project.common.util.Utility"/>
     <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.info.ProjectInfoProperties.Build"/>
     <fullyQualifiedTypeName name="java.io.File"/>
@@ -20,11 +14,9 @@
     <fullyQualifiedTypeName name="edu.kh.project.common.filter.LoginFilter"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
-    <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.support.RedirectAttributes"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.HandlerInterceptor"/>
     <fullyQualifiedTypeName name="jakarta.servlet.ServletContext"/>
     <fullyQualifiedTypeName name="java.lang.LinkageError"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
     <fullyQualifiedTypeName name="edu.kh.project.board.model.mapper.BoardMapper"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Mapper"/>
@@ -46,18 +38,26 @@
     <fullyQualifiedTypeName name="edu.kh.project.board.model.service.BoardService"/>
     <fullyQualifiedTypeName name="lombok.extern.slf4j.Slf4j"/>
     <fullyQualifiedTypeName name="lombok.RequiredArgsConstructor"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
     <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.reactor.ReactorProperties"/>
     <fullyQualifiedTypeName name="edu.kh.project.board.model.dto.Pagination"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.session.RowBounds"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="edu.kh.project.board.model.dto.Board"/>
-    <fullyQualifiedTypeName name="java.util.Map"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="java.lang.Object"/>
-    <fullyQualifiedTypeName name="java.util.HashMap"/>
-    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="org.slf4j.Marker"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.support.RedirectAttributes"/>
+    <fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="oracle.net.aso.m"/>
+    <fullyQualifiedTypeName name="edu.kh.project.board.model.dto.Board"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="edu.kh.project.board.model.dto.Comment"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="edu.kh.project.board.model.dto.BoardImg"/>
 </qualifiedTypeNameHistroy>
