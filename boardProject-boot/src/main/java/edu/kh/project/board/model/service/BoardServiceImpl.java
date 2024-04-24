@@ -88,4 +88,47 @@ public class BoardServiceImpl implements BoardService{
 		
 		return board;
 	}
+
+	// 게시글 좋아요 체크/해제
+	@Override
+	public int boardLike(Map<String, Integer> map) {
+		
+		int result = 0;
+		
+		
+		if(map.get("likeCheck") == 1) {
+			
+			// 1. 좋아요가 체크된 상태인 경우 (likeCheck == 1)
+			// -> BOARD_LIKE 테이블 DELETE
+			result = mapper.deleteBoardLike(map);
+			
+		} else {
+			
+			// 2. 좋아요가 해제된 상태인 경우 (likeCheck == 0)
+			// -> BOARD_LIKE 테이블 INSERT
+			result = mapper.insertBoardLike(map);
+		}
+		
+		// 3. 다시 해당 게시글에 좋아요 개수를 조회해 반환
+		if(result > 0) {
+			return mapper.selectLikeCount(map.get("boardNo"));
+		}
+		
+		return -1;
+	}
+
+	// 조회 수 증가
+	@Override
+	public int updateReadCount(int boardNo) {
+		
+		// 1. 조회 수 1 증가
+		int result = mapper.updateReadCount(boardNo);
+		
+		// 2. 현재 조회 수 조회
+		if(result > 0) {
+			return mapper.selectReadCount(boardNo);
+		}
+		
+		return -1;
+	}
 }
